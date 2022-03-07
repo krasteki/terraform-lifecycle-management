@@ -58,3 +58,8 @@ $ aws ec2 create-tags --resources $(terraform output -raw instance_id) --tags Ke
 
 2. Add the `ignore_changes` attribute to your `lifecycle` block in the EC2 instance.
 
+V. Destroy infrastructure
+
+```
+$ terraform destroy
+```
