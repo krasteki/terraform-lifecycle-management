@@ -8,16 +8,32 @@ I. Create infrastructure
 
 1. Clone the repo
 ```
-`$ git clone https://github.com/krasteki/terraform-lifecycle-management.git`
+$ git clone https://github.com/krasteki/terraform-lifecycle-management.git
 ```
 
 2. Enter to the folder
 ```
-`$ cd terraform-lifecycle-management`
+$ cd terraform-lifecycle-management
 ```
 
 3. Init and apply
 ```
-`$ terraform init` 
-`$ terraform apply`
+$ terraform init
+$ terraform apply
 ```
+
+II. Prevent resource deletion
+
+1. Add prevent_destroy to the EC2 instance.
+
++ lifecycle {
++   prevent_destroy = true
++ }
+
+2. Run terraform destroy to observe the behavior.
+
+```
+$ terraform destroy
+```
+
+│ Error: Instance cannot be destroyed
