@@ -37,3 +37,12 @@ $ terraform destroy
 ```
 
 │ Error: Instance cannot be destroyed
+
+III. Create resources before they are destroyed
+
+For changes that may cause downtime but must happen, use the create_before_destroy attribute to create the new resource before destroying the old resource.
+
+1. Update the security group rule to allow port `80` access instead of `8080`.
+
+2. Update the EC2 instance to reflect this change by adding the `create_before_destroy` attribute and updating the VM so it runs on port `80`.
+
