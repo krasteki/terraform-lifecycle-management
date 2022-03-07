@@ -46,3 +46,15 @@ For changes that may cause downtime but must happen, use the create_before_destr
 
 2. Update the EC2 instance to reflect this change by adding the `create_before_destroy` attribute and updating the VM so it runs on port `80`.
 
+IV. Ignore changes
+
+For changes outside the Terraform workflow that should not impact Terraform operations, use the `ignore_changes` argument.
+
+1. Update the `drift_example` tag in the AWS CLI.
+
+```
+$ aws ec2 create-tags --resources $(terraform output -raw instance_id) --tags Key=drift_example,Value=v2
+```
+
+2. Add the `ignore_changes` attribute to your `lifecycle` block in the EC2 instance.
+
